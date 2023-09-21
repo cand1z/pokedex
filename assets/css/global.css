@@ -12,23 +12,10 @@ body {
   width: 100vw;
   padding: 1rem;
   background-color: #fff;
-}
-
-@media screen and (min-width: 380px) {
-  .content {
-    height: auto;
-    margin: 1rem auto;
-    border-radius: 1rem;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  .content {
-    max-width: 576;
-    height: auto;
-    margin: 1rem auto;
-    border-radius: 1rem;
-  }
+  background-image: url("../images/pokeball2.png");
+  background-repeat: no-repeat;
+  background-size: 12rem;
+  background-position: 100% -5%;
 }
 
 @media screen and (min-width: 992px) {
