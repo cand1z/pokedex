@@ -22,6 +22,17 @@ body {
   background-position: 115% -4rem;
 }
 
+.content #loading {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content #loading img {
+  height: 150px;
+}
+
 @media screen and (min-width: 992px) {
   .content {
     max-width: 992px;
