@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.title {
+  padding: 0 1rem;
+}
+
 body {
   background-color: #f6f8fc;
 }
@@ -10,12 +14,12 @@ body {
 .content {
   height: 100vh;
   width: 100vw;
-  padding: 1rem;
+  padding: 2rem;
   background-color: #fff;
   background-image: url("../images/pokeball2.png");
   background-repeat: no-repeat;
   background-size: 12rem;
-  background-position: 100% -2rem;
+  background-position: 115% -4rem;
 }
 
 @media screen and (min-width: 992px) {
@@ -24,5 +28,6 @@ body {
     height: auto;
     margin: 1rem auto;
     border-radius: 1rem;
+    background-position: 105% -4rem;
   }
 }
