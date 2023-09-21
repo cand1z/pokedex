@@ -20,7 +20,9 @@ function loadPokemonItems(offset, limit) {
               
               <ol class="types">
                 ${pokemon.types
-                  .map((type) => `<li class="type ${type}">${type}</li>`)
+                  .map(
+                    (type) => `<li class="type ${pokemon.type}">${type}</li>`
+                  )
                   .join("")}
               </ol>
 
