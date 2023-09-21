@@ -22,7 +22,9 @@ function loadPokemonItems(offset, limit) {
             </ol>
 
             <img
-              src="${pokemon.photo}"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
+                pokemon.number
+              }.png"
               alt="${pokemon.name}"
             />
           </div>
