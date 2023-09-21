@@ -8,14 +8,14 @@ body {
 }
 
 .content {
-  height: 100%;
+  height: 100vh;
   width: 100vw;
   padding: 1rem;
   background-color: #fff;
   background-image: url("../images/pokeball2.png");
   background-repeat: no-repeat;
   background-size: 12rem;
-  background-position: 100% -5%;
+  background-position: 100% -2rem;
 }
 
 @media screen and (min-width: 992px) {
