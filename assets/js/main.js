@@ -11,7 +11,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon bg-${pokemon.type} btn">
+          <li class="pokemon bg-${pokemon.type}">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -42,32 +42,6 @@ function loadPokemonItems(offset, limit) {
 }
 
 loadPokemonItems(offset, limit);
-
-var btns = Array.from(document.getElementsByClassName("btn"));
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-
-console.log(btns);
-
-btns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    debugger;
-    modal.style.display = "block";
-    console.log("clicou");
-  });
-});
-
-// When the user clicks on <span> (x), close the modal
-span.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
