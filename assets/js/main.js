@@ -11,7 +11,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon bg-${pokemon.type}">
+          <li class="pokemon bg-${pokemon.type} teste">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -42,6 +42,9 @@ function loadPokemonItems(offset, limit) {
 }
 
 loadPokemonItems(offset, limit);
+
+const teste = Array.of(document.getElementsByClassName("teste"));
+console.log(teste);
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
