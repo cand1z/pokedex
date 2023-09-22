@@ -1,8 +1,11 @@
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
+const btns = Array.from(document.getElementsByClassName("teste"));
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
 
 const maxRecord = 151;
-const limit = 151;
+const limit = 10;
 let offset = 0;
 
 function loadPokemonItems(offset, limit) {
@@ -43,17 +46,38 @@ function loadPokemonItems(offset, limit) {
 
 loadPokemonItems(offset, limit);
 
-// loadMoreButton.addEventListener("click", () => {
-//   offset += limit;
+console.log(btns);
 
-//   const qtdRecordNextPage = offset + limit;
+btns.forEach((test) => {
+  test.addEventListener("click", () => {
+    modal.style.display = "block";
+    console.log("clicou");
+  });
+});
 
-//   if (qtdRecordNextPage >= maxRecord) {
-//     const newLimit = qtdRecordNextPage - maxRecord;
-//     loadPokemonItems(offset, newLimit);
+// When the user clicks on <span> (x), close the modal
+span.addEventListener("click", () => {
+  modal.style.display = "none";
+});
 
-//     loadMoreButton.parentElement.removeChild(loadMoreButton);
-//   } else {
-//     loadPokemonItems(offset, limit);
-//   }
-// });
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+loadMoreButton.addEventListener("click", () => {
+  offset += limit;
+
+  const qtdRecordNextPage = offset + limit;
+
+  if (qtdRecordNextPage >= maxRecord) {
+    const newLimit = qtdRecordNextPage - maxRecord;
+    loadPokemonItems(offset, newLimit);
+
+    loadMoreButton.parentElement.removeChild(loadMoreButton);
+  } else {
+    loadPokemonItems(offset, limit);
+  }
+});
