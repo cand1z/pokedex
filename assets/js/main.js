@@ -1,8 +1,5 @@
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
-const btns = Array.from(document.getElementsByClassName("btn"));
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
 
 const maxRecord = 151;
 const limit = 10;
@@ -45,6 +42,10 @@ function loadPokemonItems(offset, limit) {
 }
 
 loadPokemonItems(offset, limit);
+
+var btns = Array.from(document.getElementsByClassName("btn"));
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
 
 console.log(btns);
 
