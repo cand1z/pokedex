@@ -1,6 +1,6 @@
 const pokemonList = document.getElementById("pokemonList");
 const loadMoreButton = document.getElementById("loadMoreButton");
-const btns = Array.from(document.getElementsByClassName("teste"));
+const btns = Array.from(document.getElementsByClassName("btn"));
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
@@ -14,7 +14,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon bg-${pokemon.type}">
+          <li class="pokemon bg-${pokemon.type} btn">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -48,8 +48,9 @@ loadPokemonItems(offset, limit);
 
 console.log(btns);
 
-btns.forEach((test) => {
-  test.addEventListener("click", () => {
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    debugger;
     modal.style.display = "block";
     console.log("clicou");
   });
