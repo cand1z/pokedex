@@ -11,7 +11,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon bg-${pokemon.type}">
+          <li class="pokemon ${pokemon.type}">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
