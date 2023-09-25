@@ -11,7 +11,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon bg-${pokemon.type} teste">
+          <li class="pokemon bg-${pokemon.type}" onclick="openModal()">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -43,8 +43,9 @@ function loadPokemonItems(offset, limit) {
 
 loadPokemonItems(offset, limit);
 
-const teste = Array.of(document.getElementsByClassName("teste"));
-console.log(teste);
+function openModal() {
+  console.log("click");
+}
 
 loadMoreButton.addEventListener("click", () => {
   offset += limit;
@@ -58,6 +59,5 @@ loadMoreButton.addEventListener("click", () => {
     loadMoreButton.parentElement.removeChild(loadMoreButton);
   } else {
     loadPokemonItems(offset, limit);
-    console.log(teste);
   }
 });
