@@ -22,7 +22,12 @@
     />
 
     <!-- Font Roboto -->
-    <link href="https://fonts.cdnfonts.com/css/mona-sans" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/global.css" />
@@ -50,32 +55,6 @@
 
       <div class="pagination">
         <button id="loadMoreButton" type="button">Load More</button>
-      </div>
-
-      <!-- The Modal -->
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content grass">
-          <span class="close" onclick="closeModal()">&times;</span>
-          <header id="headerTitle">
-            <img
-              src="https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png"
-              alt=""
-              class="pokedexTitle"
-            />
-          </header>
-          <div class="modalPokemon">
-            <div class="modalHeader">
-              <span class="name">Bulbasaur</span>
-              <ol class="modalOl">
-                <li class="modalList grass">Grass</li>
-                <li class="modalList grass">Poison</li>
-              </ol>
-            </div>
-
-            <span class="number">#001</span>
-          </div>
-        </div>
       </div>
     </section>
 
