@@ -14,7 +14,7 @@ function loadPokemonItems(offset, limit) {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon ${pokemon.type}" onclick="openModal()">
+          <li class="pokemon bg-${pokemon.type}" onclick="openModal()">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -31,9 +31,7 @@ function loadPokemonItems(offset, limit) {
               </ol>
 
               <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-                  pokemon.number
-                }.png"
+                src="${pokemon.photo}"
                 alt="${pokemon.name}"
               />
             </div>

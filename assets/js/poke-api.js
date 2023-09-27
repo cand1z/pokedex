@@ -12,7 +12,9 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
   pokemon.types = types;
   pokemon.type = type;
 
-  pokemon.photo = pokeDetail.sprites.other.home.front_default;
+  pokemon.photo = pokeDetail.sprites.other["official-artwork"].front_default;
+
+  // pokemon.pokemonFlavorText = getPokemonFlavorText(pokemon.number);
 
   return pokemon;
 }
@@ -32,3 +34,10 @@ pokeApi.getPokemons = (offset = 0, limit = 16) => {
     .then((detailRequests) => Promise.all(detailRequests))
     .then((getPokemonDetail) => getPokemonDetail);
 };
+
+function getPokemonFlavorText(pokemon) {
+  const url = `https://pokeapi.co/api/v2/pokemon-species/${pokemon}`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((jsonBody) => console.log(jsonBody));
+}
