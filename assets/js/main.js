@@ -10,7 +10,6 @@ let offset = 0;
 let isLoadingPokemons = false;
 
 function loadPokemonItems(offset, limit) {
-  showLoading();
   isLoadingPokemons = true;
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     pokemonList.innerHTML += pokemons
@@ -46,7 +45,6 @@ function loadPokemonItems(offset, limit) {
       )
       .join("");
   });
-  hideLoading();
   isLoadingPokemons = false;
 }
 
