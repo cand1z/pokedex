@@ -11,6 +11,7 @@ let isLoadingPokemons = false;
 
 function loadPokemonItems(offset, limit) {
   isLoadingPokemons = true;
+
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     pokemonList.innerHTML += pokemons
       .map(
@@ -20,7 +21,7 @@ function loadPokemonItems(offset, limit) {
           onclick="openModal(
             '${pokemon.type}', '${pokemon.types}', '${pokemon.name}', '${
           pokemon.photo
-        }')">
+        }', '${pokemon.number}')">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -81,10 +82,7 @@ function openModal(type, types, name, photo) {
                 .join("")}
               </div>
             </ol>
-            <p class="pokemon-about">
-              There is a plant seed on its back right from the day this
-              Pokémon is born. The seed slowly grows larger.
-            </p>
+            <p class="pokemon-about"></p>
           </div>
         </section>
       </div>`;
@@ -104,3 +102,5 @@ window.addEventListener("wheel", () => {
     loadPokemonItems(offset, limit);
   }
 });
+
+console.log(pokemonAbout);
