@@ -102,5 +102,3 @@ window.addEventListener("wheel", () => {
     loadPokemonItems(offset, limit);
   }
 });
-
-console.log(pokemonAbout);
