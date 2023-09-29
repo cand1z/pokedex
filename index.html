@@ -63,25 +63,18 @@
       <!-- Modal -->
       <div id="myModal" class="modal">
         <div class="modal-content">
-          <header id="headerTitle">
-            <img
-              src="https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png"
-              class="pokedexTitle"
-            />
-            <span class="close" onclick="closeModal()">&times;</span>
-          </header>
-          <section class="modal-contents bg-white">
-            <img class="modal-pokemon" src="" alt="" />
-            <div class="pokemon-info">
-              <ol class="types">
-                <li class="name">
-                  <h1></h1>
-                </li>
-                <div class="flex-center"></div>
-              </ol>
-              <p class="pokemon-about"></p>
-            </div>
-          </section>
+          <div class="modal-content">
+            <header id="headerTitle">
+              <img
+                src="https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png"
+                class="pokedexTitle"
+              />
+              <span class="close" onclick="closeModal()">&times;</span>
+            </header>
+          <section
+            class="modal-contents bg-white"
+            id="modal-contents"
+          ></section>
         </div>
       </div>
     </section>

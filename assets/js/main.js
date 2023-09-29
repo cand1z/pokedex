@@ -2,6 +2,7 @@ const pokemonList = document.getElementById("pokemonList");
 
 const span = document.getElementsByClassName("close")[0];
 const modal = document.getElementById("myModal");
+const modalUpside = document.getElementsByClassName("modal-contents")[0];
 
 const maxRecord = 10010;
 const limit = 10;
@@ -52,16 +53,7 @@ function loadPokemonItems(offset, limit) {
 loadPokemonItems(offset, limit);
 
 function openModal(type, types, name, photo) {
-  modal.innerHTML = `
-        <div class="modal-content bg-${type}">
-        <header id="headerTitle">
-          <img
-            src="https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png"
-            class="pokedexTitle"
-          />
-          <span class="close" onclick="closeModal()">&times;</span>
-        </header>
-        <section class="modal-contents bg-white">
+  modalUpside.innerHTML = `
           <img
             class="modal-pokemon"
             src="${photo}"
@@ -82,10 +74,9 @@ function openModal(type, types, name, photo) {
                 .join("")}
               </div>
             </ol>
-            <p class="pokemon-about"></p>
           </div>
-        </section>
-      </div>`;
+          `;
+
   modal.style.display = "block";
 }
 
