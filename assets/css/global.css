@@ -6,11 +6,12 @@
 #headerTitle {
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 #headerTitle .pokedexTitle {
   width: calc(4rem + 1.8vw);
+  margin: 0 auto;
 }
 
 body {

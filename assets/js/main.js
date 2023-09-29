@@ -1,17 +1,28 @@
 const pokemonList = document.getElementById("pokemonList");
-const loadMoreButton = document.getElementById("loadMoreButton");
 
-const maxRecord = 151;
+const span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal");
+const modalUpside = document.getElementsByClassName("modal-contents")[0];
+
+const maxRecord = 10010;
 const limit = 10;
 let offset = 0;
 
+let isLoadingPokemons = false;
+
 function loadPokemonItems(offset, limit) {
-  showLoading();
+  isLoadingPokemons = true;
+
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     pokemonList.innerHTML += pokemons
       .map(
         (pokemon) => `
-          <li class="pokemon ${pokemon.type}">
+          <li 
+          class="pokemon bg-${pokemon.type}" 
+          onclick="openModal(
+            '${pokemon.type}', '${pokemon.types}', '${pokemon.name}', '${
+          pokemon.photo
+        }', '${pokemon.number}')">
             <div class='cardHeader'>
               <span class="name">${pokemon.name}</span>
               <span class="number">#${pokemon.number}</span>
@@ -28,32 +39,57 @@ function loadPokemonItems(offset, limit) {
               </ol>
 
               <img
-                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-                  pokemon.number
-                }.png"
+                src="${pokemon.photo}"
                 alt="${pokemon.name}"
               />
             </div>
           </li>`
       )
       .join("");
-    hideLoading();
   });
+  isLoadingPokemons = false;
 }
 
 loadPokemonItems(offset, limit);
 
-loadMoreButton.addEventListener("click", () => {
-  offset += limit;
+function openModal(type, types, name, photo) {
+  modalUpside.innerHTML = `
+          <img
+            class="modal-pokemon"
+            src="${photo}"
+            alt="${name}"
+          />
+          <div class="pokemon-info">
+            <ol class="types">
+              <li class="name">
+                <h1>${name}</h1>
+              </li>
+              <div class="flex-center">
+              ${types
+                .split(",")
+                .map(
+                  (typeSlot) =>
+                    `<li class="pokemon-type ${type}">${typeSlot}</li>`
+                )
+                .join("")}
+              </div>
+            </ol>
+          </div>
+          `;
 
-  const qtdRecordNextPage = offset + limit;
+  modal.style.display = "block";
+}
 
-  if (qtdRecordNextPage >= maxRecord) {
-    const newLimit = qtdRecordNextPage - maxRecord;
-    loadPokemonItems(offset, newLimit);
+function closeModal() {
+  modal.style.display = "none";
+}
 
-    loadMoreButton.parentElement.removeChild(loadMoreButton);
-  } else {
+window.addEventListener("wheel", () => {
+  if (
+    window.innerHeight + window.scrollY + 300 > document.body.scrollHeight &&
+    !isLoadingPokemons
+  ) {
+    offset += limit;
     loadPokemonItems(offset, limit);
   }
 });

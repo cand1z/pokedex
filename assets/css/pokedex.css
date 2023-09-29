@@ -6,78 +6,6 @@
   grid-template-columns: 1fr;
 }
 
-.normal {
-  background-color: #aab09f;
-}
-
-.grass {
-  background-color: #71c558;
-}
-
-.fire {
-  background-color: #ea7a3c;
-}
-
-.water {
-  background-color: #539ae2;
-}
-
-.electric {
-  background-color: #e5c531;
-}
-
-.ice {
-  background-color: #70cbd4;
-}
-
-.ground {
-  background-color: #cc9f4f;
-}
-
-.flying {
-  background-color: #7da6de;
-}
-
-.poison {
-  background-color: #b468b7;
-}
-
-.fighting {
-  background-color: #cb5f48;
-}
-
-.psychic {
-  background-color: #e5709b;
-}
-
-.dark {
-  background-color: #736c75;
-}
-
-.rock {
-  background-color: #b2a061;
-}
-
-.bug {
-  background-color: #a6b91a;
-}
-
-.ghost {
-  background-color: #846ab6;
-}
-
-.steel {
-  background-color: #b2a061;
-}
-
-.dragon {
-  background-color: #6a7baf;
-}
-
-.fairy {
-  background-color: #e397d1;
-}
-
 .pokemon {
   display: flex;
   flex-direction: column;
@@ -86,12 +14,7 @@
   color: #fff;
   border-radius: 1rem;
   box-shadow: 2px 2px #d3d3d3;
-  background-image: url(../images/pokeball2.png),
-    linear-gradient(45deg, black, transparent);
-  background-blend-mode: soft-light;
-  background-repeat: no-repeat;
-  background-size: 4.625rem, cover;
-  background-position: 100% 100%;
+  cursor: pointer;
 }
 
 .pokemon .cardHeader {
@@ -112,6 +35,7 @@
   color: #fff;
   text-transform: capitalize;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .pokemon .detail {
@@ -130,7 +54,7 @@
 .pokemon .detail .types .type {
   color: #fff;
   padding: 0.25rem 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   margin: 0.5rem 0;
   border-radius: 1rem;
   filter: brightness(1.1);

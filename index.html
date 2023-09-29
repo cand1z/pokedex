@@ -34,6 +34,12 @@
 
     <!-- Pokedex CSS -->
     <link rel="stylesheet" href="assets/css/pokedex.css" />
+
+    <!-- Modal CSS -->
+    <link rel="stylesheet" href="assets/css/modal.css" />
+
+    <!-- Color CSS -->
+    <link rel="stylesheet" href="assets/css/color.css" />
   </head>
 
   <body>
@@ -51,15 +57,29 @@
         <span class="loadingSpan">Loading</span>
       </div>
 
+      <!-- Pokemon List -->
       <ol id="pokemonList" class="pokemons"></ol>
 
-      <div class="pagination">
-        <button id="loadMoreButton" type="button">Load More</button>
+      <!-- Modal -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-content">
+            <header id="headerTitle">
+              <img
+                src="https://user-images.githubusercontent.com/29473781/180619084-a56960ab-7efa-4e34-9d33-4e3e581d62ff.png"
+                class="pokedexTitle"
+              />
+              <span class="close" onclick="closeModal()">&times;</span>
+            </header>
+          <section
+            class="modal-contents bg-white"
+            id="modal-contents"
+          ></section>
+        </div>
       </div>
     </section>
 
     <!-- Javascript -->
-    <script src="assets/js/loading.js"></script>
     <script src="assets/js/pokemon-model.js"></script>
     <script src="assets/js/poke-api.js"></script>
     <script src="assets/js/main.js"></script>
