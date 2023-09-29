@@ -93,3 +93,7 @@
 .pokemon-about {
   color: #979798;
 }
+
+.modal-status {
+  min-height: 43vh;
+}

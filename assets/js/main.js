@@ -3,6 +3,7 @@ const pokemonList = document.getElementById("pokemonList");
 const span = document.getElementsByClassName("close")[0];
 const modal = document.getElementById("myModal");
 const modalUpside = document.getElementsByClassName("modal-contents")[0];
+const modalBotside = "text";
 
 const maxRecord = 10010;
 const limit = 10;
@@ -50,39 +51,40 @@ function loadPokemonItems(offset, limit) {
   isLoadingPokemons = false;
 }
 
-loadPokemonItems(offset, limit);
+function setModal(type, types, name, photo) {
+  modalUpside.innerHTML = `
+  <img
+    class="modal-pokemon"
+    src="${photo}"
+    alt="${name}"
+  />
+  <div class="pokemon-info">
+    <ol class="types">
+      <li class="name">
+        <h1>${name}</h1>
+      </li>
+      <div class="flex-center">
+      ${types
+        .split(",")
+        .map((typeSlot) => `<li class="pokemon-type ${type}">${typeSlot}</li>`)
+        .join("")}
+      </div>
+    </ol>
+  </div>
+  `;
+}
 
 function openModal(type, types, name, photo) {
-  modalUpside.innerHTML = `
-          <img
-            class="modal-pokemon"
-            src="${photo}"
-            alt="${name}"
-          />
-          <div class="pokemon-info">
-            <ol class="types">
-              <li class="name">
-                <h1>${name}</h1>
-              </li>
-              <div class="flex-center">
-              ${types
-                .split(",")
-                .map(
-                  (typeSlot) =>
-                    `<li class="pokemon-type ${type}">${typeSlot}</li>`
-                )
-                .join("")}
-              </div>
-            </ol>
-          </div>
-          `;
-
+  setModal(type, types, name, photo);
   modal.style.display = "block";
 }
 
 function closeModal() {
   modal.style.display = "none";
 }
+
+loadPokemonItems(offset, limit);
+setModal("default", "default,default", "default", "");
 
 window.addEventListener("wheel", () => {
   if (
